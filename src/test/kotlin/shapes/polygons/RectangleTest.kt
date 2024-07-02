@@ -1,4 +1,4 @@
-package shapes.Polygons
+package shapes.polygons
 
 class RectangleTest {
 }
