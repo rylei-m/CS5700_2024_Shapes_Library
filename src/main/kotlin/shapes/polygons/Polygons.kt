@@ -3,9 +3,9 @@ import shapes.Point
 import shapes.Shape
 
 class Polygons(
-    private val points: List<Point>,
+    points: List<Point>,
     private val rule: Rule
-): Shape {
+): Shape(points) {
     init {
         rule.isValidShape(points)
     }
