@@ -1,14 +1,14 @@
 package shapes.ellipsoids
 import shapes.Point
-import shapes.ellipsoids.Rule
+import shapes.Shape
 
 class Ellipsoids(
     points: List<Point>,
-    val radii: List<Double>,
-    private val rule: Rule
+    private val radii: List<Double>,
+    private val rule: Rule,
 ): Shape(points) {
-    init{
-        rule.IsValidShape(points, radii)
+    init {
+        rule.isValidShape(points, radii)
     }
-    override fun area(): Double = policy.area(points, radii)
+    override fun area(): Double = rule.area(points, radii)
 }
