@@ -2,7 +2,6 @@ package shapes.Polygons
 
 import shapes.Point
 import kotlin.math.abs
-import shapes.polygons.Rectangle
 
 class Square(
     topLeft: Point,
