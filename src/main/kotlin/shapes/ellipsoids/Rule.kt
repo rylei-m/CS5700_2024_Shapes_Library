@@ -1,4 +1,7 @@
-package org.example.shapes.ellipsoids
+package shapes.ellipsoids
+import shapes.Point
 
-class Rule {
+interface Rule {
+    fun isValidShape(points: List<Point>, radii: List<Double>)
+    fun area(points: List<Point>, radii: List<Double>): Double
 }
