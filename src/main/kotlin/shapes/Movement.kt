@@ -1,7 +1,6 @@
-package org.example.shapes
+package shapes
 
-class Movement {
-    fun move(deltaX: Double, deltaY: Double, deltaZ: Double) {
-        Unit
-    }
+// interface defines a group of methods that must be implemented by a class that implement it
+interface Movement {
+    fun move(deltaX: Double, deltaY: Double): Unit
 }
