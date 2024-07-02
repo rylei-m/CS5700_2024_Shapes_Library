@@ -1,4 +1,5 @@
 package shapes.polygons
+
 import shapes.Point
 import shapes.Shape
 
@@ -11,5 +12,4 @@ class Polygons(
     }
 
     override fun area(): Double = rule.area(points)
-
 }

@@ -21,13 +21,12 @@ open class Rectangle(
     }
 
     override fun area(
-        points: List<Point>): Double = abs(
-        bottomRight.x - topLeft.x) * abs(
-        bottomRight.y - topLeft.y)
+        points: List<Point>): Double = abs(bottomRight.x - topLeft.x) * abs(bottomRight.y - topLeft.y)
 
     fun getTopLeft(): Point = topLeft.clone()
     fun getBottomRight(): Point = bottomRight.clone()
     fun getArea(): Double = abs(bottomRight.x - topLeft.x) * abs(bottomRight.y - topLeft.y)
+
     fun move(deltaX: Double, deltaY: Double) {
         topLeft.move(deltaX, deltaY)
         bottomRight.move(deltaX, deltaY)
