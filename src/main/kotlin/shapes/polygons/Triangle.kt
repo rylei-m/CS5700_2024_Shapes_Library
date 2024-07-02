@@ -1,11 +1,17 @@
 package shapes.polygons
 import shapes.Point
+import java.awt.Polygon
 import kotlin.math.abs
 
-class Triangle {
+class Triangle(val point1: Point, val point2: Point, val point3: Point) : Polygon {
+    init {
+        require(getArea() > 0) {
+            "Triangle must have a area"
+        }
+    }
     fun isValidShape(points: List<Point>) {
-        if (points.size <= 2) {
-            throw IllegalArgumentException("Triangle must have at least 2 points")
+        if (points.size != 3) {
+            throw IllegalArgumentException("Triangle must have exactly 3 points")
         }
         if (area(points) == 0.0) {
             throw IllegalArgumentException("The area of a triangle cannot be 0")
