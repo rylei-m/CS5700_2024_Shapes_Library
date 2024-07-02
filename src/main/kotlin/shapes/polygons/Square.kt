@@ -2,10 +2,11 @@ package shapes.Polygons
 
 import shapes.Point
 import kotlin.math.abs
+import shapes.polygons.Rectangle
 
 class Square(
-    topLeft: Point
-    , size: Double
+    topLeft: Point,
+    private val size: Double
 ) : Rectangle(topLeft, Point(topLeft.x + size, topLeft.y + size)) {
 
     init {
