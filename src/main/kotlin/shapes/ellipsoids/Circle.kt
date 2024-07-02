@@ -4,21 +4,13 @@ import shapes.Ellipsoids.Ellipse
 import shapes.Point
 import kotlin.math.PI
 
-class Circle(
-    private val _center: Point,
-    private val _radius: Double
-): Ellipse(_center, _radius, _radius) {
-    init {
-        require(_radius > 0) {"Circle radius must be greater than zero."}
+class Circle: Ellipse(), Rule {
+    override fun isValidShape(points: List<Point>, radii: List<Double>) {
+        require(points.size == 1) { "Points must have exactly 1 point." }
+        require(radii.size == 1) { "Circle must have exactly 1 radii." }
+        require(radii[0] != 0.0) { "Radius cant be equal to 0." }
     }
 
-    val center: Point
-        get() = _center
-    val radius: Double
-        get() = _radius
-    override fun area(): Double = PI * _radius * _radius
-
-    override fun move(deltaX: Double, deltaY: Double) {
-        _center.move(deltaX, deltaY)
-    }
+    override fun area(points: List<Point>, radii: List<Double>): Double = PI * radii[0] * radii[0]
 }
+

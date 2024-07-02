@@ -4,12 +4,12 @@ import shapes.Point
 import kotlin.math.abs
 
 class Square(
-    topLeft: Point,
-    private val size: Double
-) : Rectangle(topLeft, Point(topLeft.x + size, topLeft.y + size)) {
+    private val _topLeft: Point,
+    private val _size: Double
+) : Rectangle(_topLeft, Point(_topLeft.x + _size, _topLeft.y + _size)) {
 
     init {
-        require(size > 0.0) { "The square size must be greater than zero." }
+        require(_size > 0.0) { "The square size must be greater than zero." }
     }
 
     override fun isValidShape(points: List<Point>) {
@@ -19,5 +19,10 @@ class Square(
         require(side1 == side2) {"all sides of a square have to be equal"}
     }
 
-    fun area(): Double = size * size
+    fun area(): Double = _size * _size
+
+    override fun move(deltaX: Double, deltaY: Double) {
+        _topLeft.move(deltaX, deltaY)
+        _bottomRight.move(deltaX, deltaY)
+    }
 }
