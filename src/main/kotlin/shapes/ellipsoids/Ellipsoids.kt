@@ -4,7 +4,6 @@ import shapes.Shape
 
 class Ellipsoids(
     center: Point,
-    //points: List<Point>,
     private val radii: List<Double>,
     private val rule: Rule,
 ): Shape(listOf(center)) {

@@ -5,43 +5,37 @@ import shapes.Shape
 import shapes.polygons.Rule
 
 open class Rectangle(
-    private val topLeft: Point,
-    private val bottomRight: Point
-) : Shape(listOf(topLeft, bottomRight)) {
+    private val _topLeft: Point,
+    private val _bottomRight: Point
+) : Shape(listOf(_topLeft, _bottomRight)), Rule {
 
     init {
-        require(topLeft.x != bottomRight.x && topLeft.y != bottomRight.y) {
+        require(_topLeft.x != _bottomRight.x && _topLeft.y != _bottomRight.y) {
             "Rectangle cannot have 0 width or height"
         }
     }
 
-    override fun area(): Double =abs(bottomRight.x -topLeft.x) * abs(bottomRight.y -topLeft.y)
+    val topLeft: Point
+        get() = _topLeft.clone();
+
+    val bottomRight: Point
+        get() = _bottomRight.clone();
+
+    override fun area(): Double =abs(_bottomRight.x -_topLeft.x) * abs(_bottomRight.y -_topLeft.y)
 
     override fun move(deltaX: Double, deltaY: Double) {
-        topLeft(deltaX, deltaY)
-        bottomRight.move(deltaX, deltaY)
+        _topLeft.move(deltaX, deltaY)
+        _bottomRight.move(deltaX, deltaY)
     }
 
-    fun getTopLeft(): Point = topLeft.clone()
-    fun getBottomRight(): Point = bottomRight.clone()
+    fun getTopLeft(): Point = _topLeft.clone()
+    fun getBottomRight(): Point = _bottomRight.clone()
+    override fun isValidShape(points: List<Point>) {
+        TODO("Not yet implemented")
+    }
+
+    override fun area(points: List<Point>): Double {
+        TODO("Not yet implemented")
+    }
 
 }
-/*
-    override fun isValidShape(points: List<Point>)
-    {
-        require(points.size == 2) {"Rectangle points cannot be equal"}
-        require(points[0] != points[1]) {"Incorrect number of points"}
-    }
-
-    override fun area(
-        points: List<Point>): Double = abs(bottomRight.x - topLeft.x) * abs(bottomRight.y - topLeft.y)
-
-    fun getTopLeft(): Point = topLeft.clone()
-    fun getBottomRight(): Point = bottomRight.clone()
-    fun getArea(): Double = abs(bottomRight.x - topLeft.x) * abs(bottomRight.y - topLeft.y)
-
-    fun move(deltaX: Double, deltaY: Double) {
-        topLeft.move(deltaX, deltaY)
-        bottomRight.move(deltaX, deltaY)
-    }
-}*/
