@@ -2,18 +2,14 @@ package shapes.Ellipsoids
 import shapes.Point
 import kotlin.math.PI
 import shapes.Shape
+import shapes.ellipsoids.Rule
 
-open class Ellipse(
-    center: Point,
-    private val radiusX: Double,
-    private val radiusY: Double,
-) : Shape(listOf(center)) {
-    init {
-        require(radiusX > 0.0 && radiusY > 0.0) {"Ellipse radii must be greater than zero"}
+open class Ellipse: Rule {
+    override fun isValidShape(points: List<Point>, radii: List<Double>) {
+        require(points.size == 1) { "Points must have exactly 1 point." }
+        require(radii.size == 2) { "Ellipse must have exactly 2 radii." }
+        require(area(points,radii) != 0.0) { "area cant be equal to 0." }
     }
-    override fun area(): Double = PI * radiusX * radiusY
-    override fun move(deltaX: Double, deltaY: Double) {
-        points[0].move(deltaX, deltaY)
-    }
-    fun getRadii(): Pair<Double, Double> = Pair(radiusX, radiusY)
+
+    override fun area(points: List<Point>, radii: List<Double>): Double = PI * radii[0] * radii[1]
 }
