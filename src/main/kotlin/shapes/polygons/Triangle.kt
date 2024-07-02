@@ -1,5 +1,5 @@
 package shapes.polygons
-import shapes.Point
+import org.example.shapes.Point
 import java.awt.Polygon
 import kotlin.math.abs
 
