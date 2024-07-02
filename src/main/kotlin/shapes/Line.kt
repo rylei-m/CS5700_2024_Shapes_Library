@@ -1,6 +1,5 @@
 package shapes
-import shapes.Point
-import shapes.Movement
+
 import kotlin.math.sqrt
 import kotlin.math.pow
 
@@ -17,9 +16,11 @@ class Line(
     val end: Point
         get() = _end.clone()
 
-    fun getStart(): Point = start.clone()
-    fun getEnd(): Point = end.clone()
-    fun getSlope(): Double = (end.y - start.y) / (end.x - start.x)
+    fun getStart(): Point = start
+    fun getEnd(): Point = end
+    fun getSlope(): Double =
+        if (start.x == end.x) throw IllegalArgumentException("Slope us undefined for vertical lines")
+        else (end.y - start.y) / (end.x - start.x)
     fun getLength(): Double = sqrt((_end.x - _start.x).pow(2) + (_end.y - _start.y).pow(2))
 
     override fun move(deltaX: Double, deltaY: Double) {
