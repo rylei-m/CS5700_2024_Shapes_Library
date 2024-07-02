@@ -1,5 +1,5 @@
 package shapes.polygons
-import shape.Point
+import shapes.Point
 
 interface Rule {
     fun isValidShape(points: List<Point>)

@@ -1,12 +1,11 @@
 package shapes.polygons
 import shapes.Point
-import shapes.polygons.Rule
-import java.awt.Shape
+import shapes.Shape
 
 class Polygons(
-    points: List<Point>,
+    private val points: List<Point>,
     private val rule: Rule
-): Shape(points) {
+): Shape {
     init {
         rule.isValidShape(points)
     }
