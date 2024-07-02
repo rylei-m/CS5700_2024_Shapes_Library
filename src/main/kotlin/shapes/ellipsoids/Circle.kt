@@ -5,11 +5,20 @@ import shapes.Point
 import kotlin.math.PI
 
 class Circle(
-    center: Point,
-    radius: Double
-): Ellipse(center, radius, radius) {
+    private val _center: Point,
+    private val _radius: Double
+): Ellipse(_center, _radius, _radius) {
     init {
-        require(radius > 0) {"Circle radius must be greater than zero."}
+        require(_radius > 0) {"Circle radius must be greater than zero."}
     }
-    override fun area(points: List<Point>, radius: List<Double>): Double = PI * radius * radius
+
+    val center: Point
+        get() = _center
+    val radius: Double
+        get() = _radius
+    override fun area(): Double = PI * _radius * _radius
+
+    override fun move(deltaX: Double, deltaY: Double) {
+        _center.move(deltaX, deltaY)
+    }
 }
