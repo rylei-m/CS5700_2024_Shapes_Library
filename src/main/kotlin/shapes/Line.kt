@@ -16,9 +16,7 @@ class Line(
     val end: Point
         get() = _end.clone()
 
-    fun getStart(): Point = start
-    fun getEnd(): Point = end
-    fun getSlope(): Double =
+    fun slope(): Double =
         if (start.x == end.x) throw IllegalArgumentException("Slope us undefined for vertical lines")
         else (end.y - start.y) / (end.x - start.x)
     fun getLength(): Double = sqrt((_end.x - _start.x).pow(2) + (_end.y - _start.y).pow(2))
