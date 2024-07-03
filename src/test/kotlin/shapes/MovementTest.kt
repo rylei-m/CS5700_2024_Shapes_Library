@@ -1,10 +1,3 @@
-/*
-package shapes
-
-
-class MovementTest {
-}*/
-
 package shapes
 
 import kotlin.test.Test
