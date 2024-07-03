@@ -1,7 +1,7 @@
 package shapes.Polygons
+
 import kotlin.math.abs
 import shapes.Point
-import shapes.Shape
 import shapes.polygons.Rule
 
 open class Rectangle: Rule {

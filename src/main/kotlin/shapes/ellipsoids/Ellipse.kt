@@ -1,7 +1,7 @@
 package shapes.Ellipsoids
+
 import shapes.Point
 import kotlin.math.PI
-import shapes.Shape
 import shapes.ellipsoids.Rule
 
 open class Ellipse: Rule {
